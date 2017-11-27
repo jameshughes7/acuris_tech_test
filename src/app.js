@@ -22,8 +22,17 @@ app.get('/open/:id', (req, res) => {
   res.render('main');
 });
 
-app.get('/secret/resource', (req, res) => {
-  res.send('should not see me if you are not logged in')
-})
+app.get('/', (req, res) => {
+  MongoClient.connect('mongodb://mm_recruitment_user_readonly:rebelMutualWhistle@ds037551.mongolab.com:37551/mm-recruitment', function(err, db) {
+    if(err) throw err
+    db.collection('company', function(err, collection) {
+      collection.find().toArray(function(err, items) {
+          if(err) throw err
+          console.log(items)
+          res.render('main',{companies:items});
+      });
+    })
+  })
+});
 
 module.exports = app
