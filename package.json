@@ -22,6 +22,9 @@
   "homepage": "https://github.com/jameshughes7/acuris_tech_test#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mongodb": "^2.2.33",
     "supertest": "^3.0.0"
   }
 }
